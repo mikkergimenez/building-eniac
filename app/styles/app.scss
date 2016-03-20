@@ -1,0 +1,244 @@
+@import 'node_modules/bulma/bulma';
+
+@font-face {
+    font-family: veteranTypewriter;
+    src: url('fonts/veteran_typewriter/veteran_typewriter.ttf');
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    font: 100% veteranTypewriter;
+}
+
+@media all and (min-width: 1pt) {
+
+    hr.thin {
+        margin: 0;
+    }
+
+
+
+    .no-padding {
+        padding: 0;
+        &.section {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .no-padding-right {
+        padding-right: 0;
+    }
+    // 4C7F7F
+    .media-hidden {
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        padding: 0px 20px 20px 20px;
+        width: 100%;
+    }
+
+    .first, .fifth, .seventh {
+        color: white;
+        .title {
+            color: white;
+        }
+    }
+
+    @mixin flat-card($color) {
+        background-color: $color;
+        .media-hidden {
+            background-color: $color;
+        }
+      }
+
+    .first      { @include flat-card(#363C3C); }
+    .second     { @include flat-card(#F18046); }
+    .third      { @include flat-card(#7DABCF); }
+    .fourth     { @include flat-card(#DDDED6); }
+    .fifth      { @include flat-card(#4662F1); }
+    .sixth      { @include flat-card(#cfca7d); }
+    .seventh    { @include flat-card(#017171); }
+    .eigth      { @include flat-card(#46F1D6); }
+    .ninth      { @include flat-card(#cf7d82); }
+
+    .second, .third, .fourth, .sixth, .eigth, .ninth {
+        color: #3B3B3B;
+        .title {
+            color: #3B3B3B;
+        }
+    }
+
+    .card-flat {
+        .card-image {
+            margin: auto;
+            padding: 1em 0em;
+        }
+        .small {
+            height: 12em;
+        }
+    }
+
+    .card {
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 96%;
+    }
+
+    .c-notification--info .c-notification__icon {
+        background-color: #D2691E;
+    }
+
+    .resource-bar {
+        overflow-y: scroll;
+        max-height: 100vh;
+    }
+
+    .c-notification--warning .c-notification__icon {
+        background-color: #9B362A
+    }
+
+    .button.is-primary {
+        background: #D2691E;
+        &:hover, &:active, &:focus {
+            background: #bc5e1b;
+        }
+    }
+
+    .button.is-transparent {
+        background: rgba(0,0,0,0.1);
+        border: rgba(0,0,0,0.3);
+        &:hover, &:active, &:focus {
+            background: rgba(0,0,0,0.2);
+            border: rgba(0,0,0,0.4);
+        }
+    }
+
+    .c-notification {
+        font: 100% veteranTypewriter;
+        color: #69707a
+    }
+
+    .media-title {
+        display: flex;
+        padding-left: .5em;
+        padding-bottom: 5px;
+        .title:not(:last-child) {
+            margin-bottom: 0
+        }
+        .subtitle:not(:last-child) {
+            margin-bottom: 0
+        }
+        .title + .subtitle {
+            margin-top: 0;
+            padding-left: 10px;
+        }
+    }
+
+    .media-content {
+        padding-left: .5em;
+    }
+
+    .media-split-content {
+        width: 100%;
+    }
+
+    .media-split-left, .media-split-right {
+        float: left;
+        width: 50%;
+    }
+
+    .media-split-left {
+        border-right: 1px solid #e8e8e8;
+    }
+
+    .section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .right-block-icon {
+        right: 5px;
+        position: absolute;
+        display: block;
+    }
+
+    .float-left {
+        float: left;
+    }
+
+    .float-right {
+        float: right;
+        right: 2em;
+        position: absolute;
+    }
+
+    .card.resource .card-content {
+        padding: 5px;
+    }
+
+    .card-content {
+        position: relative;
+    }
+
+    .card.resource, .card-image.small {
+        height: 7em;
+    }
+
+    .hero-content {
+      font-size: 24px;
+      font: 100% veteranTypewriter;
+      .subtitle {
+        font-size: 32px;
+        color: #333;
+        line-height: 48px;
+      }
+    }
+
+    .middle {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+    }
+
+    .liquid-container, .ember-view {
+        height: 100%;
+        background-color: white;
+    }
+
+    .liquid-container:parent {
+        height: 100%;
+    }
+
+    .large-image-game {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .image-main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 55%;
+    }
+
+    .next-button-wrapper {
+        position: fixed;
+        bottom: 10%;
+        right: 10%;
+    }
+
+    .bottom-bar {
+        font-size: 18px;
+        padding: .3em 1em;
+        line-height: 1.3em;
+        width: 100%;
+        height: 8%;
+        border: 2px solid #e8e8e8;
+        // border-left: 2px solid #e8e8e8;
+        // border-right: 2px solid #e8e8e8;
+    }
+}

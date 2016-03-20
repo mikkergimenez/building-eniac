@@ -1,0 +1,8 @@
+{{#if showText class="splash-screen"}}
+    {{splash-screen title=model.title text=model.text image=model.meta nextChapter="nextChapter"}}
+{{/if}}
+{{#if showGame class="game-screen"}}
+    {{game-screen image=model.meta reference=model.text}}
+{{/if}}
+{{outlet}}
+{{notification-container notifications=notifications}}

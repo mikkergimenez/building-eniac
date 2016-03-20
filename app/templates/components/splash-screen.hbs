@@ -1,0 +1,22 @@
+<div class="middle-container">
+    <section class="hero middle">
+      <div class="hero-content">
+        <div class="container">
+          <h1 class="title">
+            {{title}}
+          </h1>
+          {{#if image}}
+            <img height=400 src="{{image}}">
+            <br />
+          {{/if}}
+          <h2 class="subtitle">
+            {{text}}
+            {{yield}}
+          </h2>
+        </div>
+      </div>
+    </section>
+</div>
+<div class="next-button-wrapper">
+    <a {{action "nextChapter"}} class="button is-large">Next</a>
+</div>

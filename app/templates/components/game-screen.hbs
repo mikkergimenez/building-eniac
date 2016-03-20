@@ -1,0 +1,268 @@
+<div class="columns">
+    <span class="column is-half no-padding-right">
+        <div class="columns">
+            <div class="column">
+                <div>
+                    <img class="large-image-game" src="{{image}}">
+                </div>
+                <div class="bottom-bar">
+                    {{reference}}
+                </div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                {{#if showReputation}}
+                    <div class="stat card">
+                        <div class="card-content">
+                            <div class="media-title">
+                                <span class="title is-5">Reputation</span>
+                                <span class="float-right subtitle is-5">{{reputation}}</span>
+                            </div>
+                            <div class="media-title">
+                                <span class="title is-5">Money</span>
+                                <span class="float-right subtitle is-5">{{money}}</span>
+                            </div>
+                        </div>
+                        <hr / class="thin">
+                        <div class="card-content">
+                        {{#unless solderingIrons}}
+                            <div class="media-title">
+                                <span class="title is-5">Soldering Irons (${{solderingIronsCost}})</span>
+                                <a class="float-right is-primary is-5" {{action "upgrade" "solderingIrons"}}>Buy</a>
+                            </div>
+                        {{/unless}}
+                        {{#if solderingIrons}}
+                            {{#unless solderingGuns}}
+                                <div class="media-title">
+                                    <span class="title is-5">Soldering Guns (${{solderingGunsCost}})</span>
+                                    <a class="float-right is-primary is-5" {{action "upgrade" "solderingGuns"}}>Buy</a>
+                                </div>
+                            {{/unless}}
+                        {{/if}}
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </span>
+    <span class="column is-half resource-bar">
+        <section class="section">
+            <center>
+                <h2 class="title is-2">Univeristy of Pennsylania</h2>
+                <h3 class="title is-3">Moore School of Engineering</h3>
+            </center>
+        </section>
+        <div class="columns">
+            <span class="column is-third no-padding">
+                {{resource-media
+                    showMedia=showTransistors
+                    wikipedia="Vacuum_tube"
+                    number=vacuumTubes
+                    total=vacuumTubesTotal
+                    description="Vacuum tubes control the electric current between electrodes in an evacuated container."
+                    class="first"
+                    title="Vacuum Tubes"
+                    image="vacuum_tube_silhouette_transparent.png"}}
+                {{resource-media
+                    buyLabel="Hire"
+                    isFree=internFree
+                    isBuilding=false
+                    buyable=true
+                    buyAction="hireIntern"
+                    cost=internCost
+                    costResource="Reputation"
+                    showMedia=showInterns
+                    number=interns
+                    description="Every university research project needs some good interns."
+                    class="fourth" title="Interns"
+                    image="intern_adjusted_silhouette_transparent.png"
+                }}
+                {{resource-media
+                    showMedia=showSolderJoints
+                    wikipedia="Capacitors"
+                    number=solderJoints
+                    total=solderJointsTotal
+                    description="There were 500,000 hand-soldered joints in the finished ENIAC."
+                    title="Capacitors"
+                    class="seventh"
+                    image="capacitor_silhouette_transparent_white.png"
+                }}
+            </span>
+            <span class="column is-third no-padding">
+                {{resource-media
+                    showMedia=showSolderJoints
+                    wikipedia="Soldering"
+                    number=solderJoints
+                    total=solderJointsTotal
+                    description="There were 500,000 hand-soldered joints in the finished ENIAC."
+                    title="Solder Joints"
+                    class="second"
+                    image="solder_joint_silhouette_transparent.png"
+                }}
+                {{resource-media
+                    buyLabel="Build"
+                    isFree=false
+                    isBuilding=buildingAccumulator
+                    buyable=true
+                    buyAction="startBuildingAccumulator"
+                    cost="280 Vacuum Tubes<br />7480 Solder Joints"
+                    showMedia=showSolderJoints
+                    wikipedia="Accumulator_(computing)"
+                    number=accumulators
+                    total=solderJointsTotal
+                    description="The most common panel is the accumulator, which serves as a memory and arithmetic unit."
+                    title="Panels"
+                    class="fifth"
+                    collectedResourceTwoIncrementAmount=solderingIncrementAmount
+                    collectedResourceOne=accumulatorVacuumTubes
+                    collectedResourceTwo=accumulatorSolderJoints
+                    collectedResourceOneTitle="Vacuum Tubes"
+                    collectedResourceTwoTitle="Solder Joints"
+                    collectedResourceOneTotal="280"
+                    collectedResourceTwoTotal="7480"
+                    image="eniac_accumulator_silhouette_transparent_white.png"}}
+                {{resource-media
+                    showMedia=showSolderJoints
+                    wikipedia="Resistors"
+                    number=solderJoints
+                    total=solderJointsTotal
+                    description="There were 500,000 hand-soldered joints in the finished ENIAC."
+                    title="Resistors"
+                    class="eigth"
+                    image="solder_joint_silhouette_transparent.png"
+                }}
+            </span>
+            <span class="column is-third no-padding">
+                {{resource-media
+                    showMedia=showSolderJoints
+                    wikipedia="Soldering"
+                    number=solderJoints
+                    total=solderJointsTotal
+                    description="There were 500,000 hand-soldered joints in the finished ENIAC."
+                    title="Crystal Diodes"
+                    class="third"
+                    image="crystal_diode_silhouette_transparent.png"
+                }}
+                {{resource-media
+                    showMedia=showSolderJoints
+                    wikipedia="Relay"
+                    number=solderJoints
+                    total=solderJointsTotal
+                    description="A relay is an electronically operated switch"
+                    title="Relays"
+                    class="sixth"
+                    image="relay_silhouette_transparent.png"
+                }}
+                {{resource-media
+                    showMedia=showSolderJoints
+                    wikipedia="Switches"
+                    number=solderJoints
+                    total=solderJointsTotal
+                    description="There were 500,000 hand-soldered joints in the finished ENIAC."
+                    title="Switches"
+                    class="ninth"
+                    image="solder_joint_silhouette_transparent.png"
+                }}
+            </span>
+        </div>
+    </span>
+</div>
+
+<!--
+{{#if showInterns}}
+<div>
+    <section class="section">
+        <div class="resource card-flat fourth">
+            <figure class="card-image float-left small">
+                <img src="images/intern_adjusted_silhouette_transparent.png" alt="">
+            </figure>
+            <div class="card-content">
+                <div class="media-title">
+                    <span class="title is-5">Interns</span>
+                    <span class="subtitle is-5">{{interns}}</span>
+                    <span class="right-block-icon">
+                        <a href="https://en.wikipedia.org/wiki/Transistor"><img src="images/206px-Wikipedia-logo-v2.svg.png" width=25></a>
+                    </span>
+                </div>
+                <div class="media">
+                    <div class="media-content">
+                        Every university research project needs some good interns.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-split-content">
+                        <span class="media-split-left">
+                            {{#if internFree}}
+                                Cost: Free
+                            {{else}}
+                                Cost: {{internCost}} Reputation
+                            {{/if}}
+                        </span>
+                        <span class="media-split-right">
+                            <center>
+                                <button class="button is-primary" {{action "hireIntern"}}>Hire</button>
+                            </center>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{{/if}}
+
+{{#if showAccumulators}}
+    <section class="section">
+        <div class="resource card-flat second">
+          <figure class="card-image float-left small">
+            <img src="images/eniac_accumulator.jpg" alt="">
+          </figure>
+          <div class="card-content">
+              <div class="media-title">
+                <span class="title is-5">Accumulators</span>
+                <span class="subtitle is-5">{{accumulators}}</span>
+                <span class="right-block-icon">
+                    <a href="https://en.wikipedia.org/wiki/Accumulator_(computing)"><img src="images/206px-Wikipedia-logo-v2.svg.png" width=25></a>
+                </span>
+              </div>
+              <div class="media">
+                <div class="media-content">
+                  The accumulator serves as a memory and arithmetic unit.
+                </div>
+              </div>
+          </div>
+      </div>
+          <div class="card-flat">
+            <div class="card-content">
+                {{#if buildingAccumulator}}
+                    <span class="title is-5">Building</span>
+                    <div class="media">
+                        <div class="media-split-content">
+                            <span class="media-split-left">
+                                {{accumulatorVacuumTubes}} Vacuum Tubes
+                            </span>
+                            <span class="media-split-right">
+                                {{accumulatorSolderJoints}} ({{solderingIncrementAmount}}/s) Solder Joints
+                            </span>
+                        </div>
+                    </div>
+                {{else }}
+                    <div class="media">
+                      <div class="media-content">
+                        <center>
+                            <button class="button is-primary" {{action "startBuildingAccumulator" "accumulator"}}>Build</button>
+                        </center>
+                      </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+{{/if}}
+
+-->

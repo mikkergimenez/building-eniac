@@ -1,0 +1,74 @@
+<div>
+    <section class="section no-padding">
+        {{#if showMedia}}
+        <div class="resource card-flat {{class}}">
+            <div class="card-content">
+                <div class="media-title">
+                    <h2 class="title is-4">{{title}}</h2>
+                    <span class="right-block-icon">
+                        <a target="_blank" href="https://en.wikipedia.org/wiki/{{wikipedia}}"><img src="images/206px-Wikipedia-logo-v2.svg.png" width=25></a>
+                    </span>
+                </div>
+                <div class="media">
+                    <div class="media-content">
+                        <center>
+                            <div class="card-image small">
+                                {{#if hovering}}
+                                    {{description}}
+                                {{else}}
+                                    <img src="images/{{image}}" alt="">
+                                {{/if}}
+                            </div>
+                            <div class="subtitle is-5">{{number}}{{#if total}}/{{total}}{{/if}}
+                                {{#if isBuilding}}
+                                    ({{percentComplete}}%)
+                                {{/if}}
+                            </div>
+                        </center>
+                        {{#if hovering}}
+                            <div class="media-hidden">
+                                {{#if buyable}}
+                                    <hr />
+                                    <div class="columns">
+                                        <div class="media-split-content">
+                                            {{#if isBuilding}}
+                                                <span class="title is-5">Building</span>
+                                                <div class="media">
+                                                    <div class="media-split-content">
+                                                        <span class="media-split-left">
+                                                            {{worker-assigner addWorker="addWorker" removeWorker="removeWorker" resource=collectedResourceOneTitle}}
+                                                            {{collectedResourceOne}}/{{collectedResourceOneTotal}} {{collectedResourceOneTitle}}
+                                                        </span>
+                                                        <span class="media-split-right">
+                                                            {{worker-assigner addWorker="addWorker" removeWorker="removeWorker" resource=collectedResourceTwo}}
+                                                            {{collectedResourceTwo}}/{{collectedResourceTwoTotal}} ({{collectedResourceTwoIncrementAmount}}/s) {{collectedResourceTwoTitle}}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            {{else }}
+                                                <span class="media-split-left">
+                                                    {{#if isFree}}
+                                                        Cost: Free
+                                                    {{else}}
+                                                        Cost: <br />{{{cost}}} {{costResource}}
+                                                    {{/if}}
+                                                </span>
+                                                <span class="media-split-right">
+                                                    <center>
+                                                        <button class="button is-transparent" {{action "buyAction"}}>{{buyLabel}}</button>
+                                                    </center>
+                                                </span>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                {{/if}}
+                            </div>
+
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </section>
+</div>
